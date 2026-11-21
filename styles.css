@@ -165,12 +165,10 @@ h1, h2 { font-family: var(--font-display); }
 .testimonial-card blockquote { margin: 0 0 22px; }
 .testimonial-card blockquote p { margin: 0; color: var(--ink); font: 500 14px/1.8 var(--font-body); }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
-.testimonial-author > img, .testimonial-portraits img { width: 54px; height: 54px; flex: 0 0 auto; border: 2px solid white; border-radius: 50%; object-fit: cover; object-position: center 20%; }
+.testimonial-author > img { width: 54px; height: 54px; flex: 0 0 auto; border: 2px solid white; border-radius: 50%; object-fit: cover; object-position: center 20%; }
 .testimonial-author > span:last-child { display: flex; flex-direction: column; }
 .testimonial-author strong { font-size: 12px; line-height: 1.5; }
 .testimonial-author span span { color: var(--muted); font-size: 10px; }
-.testimonial-portraits { display: flex; flex: 0 0 auto; padding-left: 9px; }
-.testimonial-portraits img + img { margin-left: -13px; }
 @keyframes testimonials-scroll { to { transform: translateX(-50%); } }
 
 .samples-section { padding-bottom: 105px; }
