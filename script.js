@@ -21,6 +21,29 @@ if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
+const testimonialTrack = document.querySelector(".testimonials-track");
+const testimonialToggle = document.querySelector(".testimonial-toggle");
+
+if (testimonialTrack instanceof HTMLElement && testimonialToggle instanceof HTMLButtonElement) {
+  const testimonialMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const updateTestimonialMotionControls = () => {
+    const reduceMotion = testimonialMotionPreference.matches;
+    testimonialToggle.disabled = reduceMotion;
+    testimonialTrack.classList.remove("is-paused");
+    testimonialToggle.setAttribute("aria-pressed", String(reduceMotion));
+    testimonialToggle.textContent = reduceMotion ? "Auto-scroll paused" : "Pause to read";
+  };
+
+  testimonialToggle.addEventListener("click", () => {
+    const isPaused = testimonialTrack.classList.toggle("is-paused");
+    testimonialToggle.setAttribute("aria-pressed", String(isPaused));
+    testimonialToggle.textContent = isPaused ? "Resume scrolling" : "Pause to read";
+  });
+  testimonialMotionPreference.addEventListener("change", updateTestimonialMotionControls);
+  updateTestimonialMotionControls();
+}
+
 const introVideo = document.querySelector("#intro-video");
 const videoCover = document.querySelector(".video-cover");
 const videoError = document.querySelector(".video-error");
